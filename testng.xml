@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite annotations="JDK" name="test" thread-count="2" verbose="1" parallel="tests" >
+    <test name="testSuccessfulLogin" >
+        <classes>
+            <class name="login.LoginTests" />
+        </classes>
+    </test>
+
+    <test name="get01">
+        <classes>
+            <class name="restassured.API_GET_Request"/>
+        </classes>
+    </test>
+</suite>
