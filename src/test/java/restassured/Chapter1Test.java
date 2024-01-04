@@ -1,6 +1,14 @@
 package restassured;
 
+/*import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
+import org.junit.Test;*/
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import org.json.JSONObject;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.*;
@@ -18,6 +26,7 @@ public class Chapter1Test {
                 then().
                 assertThat().
                 statusCode(200);
+        
 
     }
     @Test
@@ -29,6 +38,7 @@ public class Chapter1Test {
                 then().
                 assertThat().
                 contentType(ContentType.JSON);
+
     }
 
     @Test
@@ -56,13 +66,16 @@ public class Chapter1Test {
     @Test
     public void requestUsZipCode90210_logRequestAndResponseDetailsmx() {
         String endpoint ="https://reqres.in/api/users?page=2";
-
-
-            var response = given().
+        given().
+                log().all().
                 when().
                 get(endpoint).
-                then();
-            response.log().body();
+                then().
+                log().body();
+
+
+
+
 
     }
 
